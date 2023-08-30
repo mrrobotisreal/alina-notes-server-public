@@ -9,6 +9,7 @@ export const UserSchema = new mongoose.Schema({
     type: [
       {
         section: String,
+        subject: String,
         note: String,
         creationDate: Number,
       },
