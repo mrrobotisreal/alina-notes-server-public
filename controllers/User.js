@@ -228,6 +228,7 @@ export const getSettings = async () => {
     lang: user ? user.lang : "en",
     theme: user ? user.theme : "purple",
     font: user ? user.font : "nexa",
+    book: user ? user.book : "My External Cause",
   };
   return settings;
 };
@@ -289,6 +290,21 @@ export const saveFont = async (font) => {
     {
       $set: {
         font: font,
+      },
+    }
+  );
+  return !!result;
+};
+
+export const saveBook = async (book) => {
+  await findUser();
+  const result = await User.findOneAndUpdate(
+    {
+      username: "alina.ranok",
+    },
+    {
+      $set: {
+        book: book,
       },
     }
   );

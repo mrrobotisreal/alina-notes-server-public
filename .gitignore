@@ -8,3 +8,7 @@ node_modules/
 # local env files
 .env*.local
 .env
+
+# VS Code
+.vscode/
+.vscode/*

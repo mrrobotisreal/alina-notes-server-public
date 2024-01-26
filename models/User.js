@@ -5,6 +5,7 @@ export const UserSchema = new mongoose.Schema({
   lang: { type: String, default: "en", required: true },
   theme: { type: String, default: "purple", required: true },
   font: { type: String, default: "nexa", required: true },
+  book: { type: String, default: "My External Cause", required: true },
   general: {
     type: [
       {

@@ -9,6 +9,7 @@ import {
   getAllNotes,
   getSettings,
   putSettings,
+  saveBook,
   saveFont,
   saveLang,
   saveTheme,
@@ -22,6 +23,7 @@ const SERVER_PORT = 9090;
 // const io = new Server(httpServer, {});
 app.use(cors());
 app.use(express.json());
+app.use("/assets", express.static("assets"));
 
 // io.on("connection", (socket) => {
 //   console.log(`⚡️: socket ${socket.id} just connected!`);
@@ -92,6 +94,44 @@ app.post("/saveLangSelection", async (req, res) => {
   const result = await saveLang(req.body.lang);
 
   res.send(result);
+});
+
+app.get("/getBook", async (req, res) => {
+  const settings = await getSettings();
+
+  res.send(settings.book);
+});
+
+app.post("/saveBookSelection", async (req, res) => {
+  const result = await saveBook(req.body.book);
+
+  res.send(result);
+});
+
+app.post("/getAlbumLength", async (req, res) => {
+  let albumLength;
+
+  switch (req.body.albumId) {
+    case "austria":
+      albumLength = "63";
+      break;
+    case "paris":
+      albumLength = "31";
+      break;
+    case "portugal":
+      albumLength = "40";
+      break;
+    case "portugal_photoshoot":
+      albumLength = "0";
+      break;
+    case "frankfurt":
+      albumLength = "0";
+      break;
+    default:
+      albumLength = "0";
+  }
+
+  res.send(albumLength);
 });
 
 app.get("/getTheme", async (req, res) => {
