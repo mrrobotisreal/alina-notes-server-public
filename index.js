@@ -127,7 +127,7 @@ app.post("/getAlbumLength", async (req, res) => {
     case "portugal":
       albumLength = "40";
       break;
-    case "portugal_photoshoot":
+    case "portugalPhotoshoot":
       albumLength = "57";
       break;
     case "frankfurt":
