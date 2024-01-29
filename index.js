@@ -25,6 +25,12 @@ const app = express();
 const SERVER_PORT = 9090;
 // const SOCKET_PORT = 9091;
 
+express.static.mime.define({
+  "audio/x-m4a": ["m4a"],
+  "image/png": ["png"],
+  "image/jpeg": ["jpg", "jpeg"],
+});
+
 // const httpServer = createServer(app);
 // const io = new Server(httpServer, {});
 app.use(cors());
