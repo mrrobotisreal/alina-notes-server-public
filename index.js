@@ -14,6 +14,12 @@ import {
   saveLang,
   saveTheme,
 } from "./controllers/User.js";
+// import sharp from "sharp";
+
+// sharp("assets/backgrounds/photos_viewer_sun.png")
+//   .resize()
+//   .toFormat("jpeg")
+//   .toFile("assets/toServe/backgrounds/photos_viewer_sun.jpg");
 
 const app = express();
 const SERVER_PORT = 9090;
@@ -122,7 +128,7 @@ app.post("/getAlbumLength", async (req, res) => {
       albumLength = "40";
       break;
     case "portugal_photoshoot":
-      albumLength = "0";
+      albumLength = "57";
       break;
     case "frankfurt":
       albumLength = "0";
