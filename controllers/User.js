@@ -244,6 +244,7 @@ export const putSettings = async (settings) => {
         lang: settings.lang,
         theme: settings.theme,
         font: settings.font,
+        book: settings.book ? settings.book : "My External Cause",
       },
     }
   );
