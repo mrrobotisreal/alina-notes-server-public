@@ -231,12 +231,13 @@ export const getSettings = async () => {
     lang: user ? user.lang : "en",
     theme: user ? user.theme : "purple",
     font: user ? user.font : "nexa",
-    book: user ? user.book : "My External Cause",
+    book: user ? user.book : "The Judge",
   };
   return settings;
 };
 
 export const putSettings = async (settings) => {
+  console.log("putSettings being called!", settings.book);
   await findUser();
   const result = await User.findOneAndUpdate(
     {
@@ -247,11 +248,10 @@ export const putSettings = async (settings) => {
         lang: settings.lang,
         theme: settings.theme,
         font: settings.font,
-        book: settings.book ? settings.book : "My External Cause",
+        book: settings.book ? settings.book : "The Judge",
       },
     }
   );
-  console.log("result is:", result);
   return !!result;
 };
 
