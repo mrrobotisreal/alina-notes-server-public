@@ -86,11 +86,13 @@ app.post("/saveNote", async (req, res) => {
 
 app.get("/getSettings", async (_, res) => {
   const settings = await getSettings();
+  console.log("settings:", JSON.stringify(settings, null, 2));
 
   res.send(settings);
 });
 
 app.post("/putSettings", async (req, res) => {
+  console.log("req.body.settings:", JSON.stringify(req.body.settings, null, 2));
   const result = await putSettings(req.body.settings);
 
   res.send(result);
@@ -110,11 +112,13 @@ app.post("/saveLangSelection", async (req, res) => {
 
 app.get("/getBook", async (req, res) => {
   const settings = await getSettings();
+  console.log("settings.book:", settings.book);
 
   res.send(settings.book);
 });
 
 app.post("/saveBookSelection", async (req, res) => {
+  console.log("req.body.book:", req.body.book);
   const result = await saveBook(req.body.book);
 
   res.send(result);
