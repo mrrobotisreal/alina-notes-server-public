@@ -224,6 +224,9 @@ export const getAllNotes = async () => {
 
 export const getSettings = async () => {
   const user = await findUser();
+  if (user) {
+    console.log("user book:", user.book);
+  }
   const settings = {
     lang: user ? user.lang : "en",
     theme: user ? user.theme : "purple",
